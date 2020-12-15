@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns :th="http://www.thymeleaf.org">
+    <head>
+        <title>CIUDADES</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container mt-4">
+            <div class="col-sm-6">
+                <form th:action="@{/ciudad/save}" th:each=ciudad:${ciudad} method="post">
+                    <div class="card">
+                    <div class="card-header">MODULO CIUDAD</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>CODIGO</label>
+                            <input readonly="" type="number" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>CIUDAD</label>
+                            <input th:field="${ciudad.nombre}" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="GUARDAR" class="btn btn-success" />
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

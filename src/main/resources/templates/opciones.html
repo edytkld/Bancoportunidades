@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Documento</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>Ciudad</th>
+                    
+                </tr>
+            </thead>
+            <tbody > 
+                <tr>
+                    <td th:text="${clientes.cedula}"></td>
+                    <td th:text="${clientes.nombre}"></td>
+                    <td th:text="${clientes.apellido}"></td>
+                    <td th:text="${clientes.telefono}"></td>
+                    <td th:text="${clientes.direccion}"></td>
+                    <td th:text="${clientes.cod_ciudad.nombre}"></td>
+                    
+                </tr>
+            </tbody>
+            
+        </table>
+        
+    </body>
+</html>

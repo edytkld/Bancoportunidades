@@ -29,36 +29,36 @@ public class cuentaControl {
     @Autowired
     private IcuentaServices service;
     
-    @GetMapping("/listarC")
+    @GetMapping("/list")
     public String Listar(Model model){
         List<Cuenta>cuenta=service.listar();
         model.addAttribute("cuenta", cuenta);
         return "listarCuentas";
     }
     
-    @GetMapping("/newC")
+    @GetMapping("/new")
     public String agregar(Model model){
         model.addAttribute("cuenta", new Cuenta());
         return "form2";
     }
     
-    @GetMapping("/editC/{codigo_cta}")
+    @GetMapping("/edit/{codigo_cta}")
     public String editar(@PathVariable int codigo_cta, Model model){
         Optional<Cuenta>cuenta=service.listId(codigo_cta);
         model.addAttribute("cuenta", cuenta);
         return "form2";
     }
     
-    @PostMapping("/saveC")
+    @PostMapping("/save")
     public String save(@Valid Cuenta cuen, Model model){
         service.save(cuen);
-        return "redirect:/cuenta/listarC";
+        return "redirect:/cuenta/list";
     }
     
-    @GetMapping("/deleteC/{codigo_cta}")
+    @GetMapping("/delete/{codigo_cta}")
     public String delete(Model model, @PathVariable int codigo_cta){
         service.delete(codigo_cta);
-        return "redirect:/cuenta/listarC";
+        return "redirect:/cuenta/list";
     }
     
 }

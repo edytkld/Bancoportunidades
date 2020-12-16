@@ -29,7 +29,7 @@ public class ciudadControl {
     @Autowired
     private IciudadService service;
     
-    @GetMapping("/listar")
+    @GetMapping("/list")
     public String listar(Model model){
         List<Ciudad>ciudad=service.listar();
         model.addAttribute("ciudad", ciudad);
@@ -42,7 +42,7 @@ public class ciudadControl {
         return "form1";
     }
     
-    @GetMapping("/edit/{codigo}")
+    @GetMapping("/{codigo}")
     public String editar(@PathVariable int codigo, Model model){
         Optional<Ciudad>ciudad=service.listId(codigo);
         model.addAttribute("ciudad", ciudad);
@@ -52,13 +52,13 @@ public class ciudadControl {
     @PostMapping("/save")
     public String save(@Valid Ciudad ciu, Model model){
         service.save(ciu);
-        return "redirect:/ciudad/listar";
+        return "redirect:/ciudad/list";
     }
     
     @GetMapping("/delete/{codigo}")
     public String delete(Model model, @PathVariable int codigo){
         service.delete(codigo);
-        return "redirect:/ciudad/listar";
+        return "redirect:/ciudad/list";
     }
     
 }

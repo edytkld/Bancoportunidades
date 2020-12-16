@@ -10,8 +10,8 @@
         <nav class="navbar navbar-dark bg-dark">
             <a style="color: white; font-size: 25px; font-family: arial; text-decoration: none;" >BANCOPORTUNIDADES</a>
             <div class="dropdwon">
-                <a style="color: white;" class="navbar-toggler" th:href="@{/cuenta/listarC}">CUENTAS</a>
-                <a style="color: white;" class="navbar-toggler" th:href="@{/clientes/listarCli}">CLIENTES</a>
+                <a style="color: white;" class="navbar-toggler" th:href="@{/cuenta/list}">CUENTAS</a>
+                <a style="color: white;" class="navbar-toggler" th:href="@{/clientes/list}">CLIENTES</a>
             </div>        
         </nav>
         <div class="container mt-4">
@@ -29,7 +29,7 @@
                         <td th:text="${ciudad.codigo}"></td>
                         <td th:text="${ciudad.nombre}"></td>
                         <td>
-                            <a th:href="@{/ciudad/edit/}+${ciudad.codigo}" class="btn btn-warning sm">EDITAR</a>
+                            <a th:href="@{/ciudad/}+${ciudad.codigo}" class="btn btn-warning sm">EDITAR</a>
                             <a th:href="@{/ciudad/delete/}+${ciudad.codigo}" class="btn btn-danger sm">ELIMINAR</a>
                         </td>
                     </tr>

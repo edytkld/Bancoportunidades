@@ -30,7 +30,7 @@ public class clienteControl {
     
     
     
-    @GetMapping("/listarCli") //produces = "application/json"
+    @GetMapping("/list") //produces = "application/json"
     public String listclient(Model model){
         
         List<Cliente>clientes=service.listar();
@@ -40,28 +40,28 @@ public class clienteControl {
      return "opciones";
    }
     
-    @GetMapping("/newCli")
+    @GetMapping("/new")
     public String agregar(Model model){
         model.addAttribute("clientes", new Cliente());
         return "formCli";
     }
     
-    @GetMapping("/editCli/{cedula}")
+    @GetMapping("/{cedula}")
     public String editar(@PathVariable String cedula, Model model){
         Optional<Cliente>clientes=service.listId(cedula);
         model.addAttribute("clientes", clientes);
         return "formCli";
     }
     
-    @PostMapping("/saveCli")
+    @PostMapping("/save")
     public String save(@Valid Cliente cli, Model model){
         service.save(cli);
-        return "redirect:/clientes/listarCli";
+        return "redirect:/clientes/list";
     }
     
-    @GetMapping("/deleteCli/{cedula}")
+    @GetMapping("/delete/{cedula}")
     public String delete(Model model, @PathVariable String cedula){
         service.delete(cedula);
-        return "redirect:/clientes/listarCli";
+        return "redirect:/clientes/list";
     }
 }

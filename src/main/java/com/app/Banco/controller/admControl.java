@@ -27,7 +27,7 @@ public class admControl {
     
     private IadmovService service;
     
-    @GetMapping("/listarAdmCuenta")
+    @GetMapping("/list")
     public String listar(Model model){
         List<admCuenta>admcuenta=service.listar();
         model.addAttribute("admcuenta", admcuenta);

@@ -42,8 +42,8 @@ and open the template in the editor.
                     <td th:text="${clientes.direccion}"></td>
                     <td th:text="${clientes.cod_ciudad.nombre}"></td>
                     <td>
-                        <a th:href="@{/clientes/editCli/}+${clientes.cedula}" class="btn btn-warning sm">EDITAR</a>
-                        <a th:href="@{/clientes/deleteCli/}+${clientes.cedula}" class="btn btn-danger sm">ELIMINAR</a>
+                        <a th:href="@{/clientes/}+${clientes.cedula}" class="btn btn-warning sm">EDITAR</a>
+                        <a th:href="@{/clientes/delete/}+${clientes.cedula}" class="btn btn-danger sm">ELIMINAR</a>
                     </td>
                 </tr>
             </tbody>

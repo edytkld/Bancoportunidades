@@ -49,10 +49,16 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	 <dependency>
+	<!-- <dependency>
 	  <groupId>com.app</groupId>
 	  <artifactId>Banco</artifactId>
 	  <version>0.0.1-SNAPSHOT</version>
+	  <type>jar</type>
+	 </dependency>-->
+	 <dependency>
+	  <groupId>javax</groupId>
+	  <artifactId>javaee-web-api</artifactId>
+	  <version>7.0</version>
 	  <type>jar</type>
 	 </dependency>
 	</dependencies>

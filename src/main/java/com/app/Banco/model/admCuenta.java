@@ -60,10 +60,11 @@ public class admCuenta implements Serializable {
         
     }
 
-    public admCuenta(int cod_cuenta, Cliente cedula_cli, Timestamp fecha_creacion) {
+    public admCuenta(int cod_cuenta, Cliente cedula_cli, Timestamp fecha_creacion, Cuenta cuenta) {
         this.cod_cuenta = cod_cuenta;
         this.cedula_cli = cedula_cli;
         this.fecha_creacion = fecha_creacion;
+        this.cuenta = cuenta;
     }
     
     
@@ -90,6 +91,14 @@ public class admCuenta implements Serializable {
 
     public void setFecha_creacion(Timestamp fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
+    }
+
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
     }
 
     

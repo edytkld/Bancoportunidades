@@ -26,23 +26,27 @@ public class AdmoviService implements IadmovService {
     
     @Override
     public List<admCuenta> listar() {
-       
         return (List<admCuenta>) data.findAll();
     }
 
     @Override
     public Optional<admCuenta> listId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return data.findById(id);
     }
 
     @Override
     public int save(admCuenta ad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int res=0;
+        admCuenta admcuenta= data.save(ad);
+        if(!admcuenta.equals(null)){
+            res = 1;
+        }
+        return res;
     }
 
     @Override
     public void delete(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        data.deleteById(cod);
     }
 
 }

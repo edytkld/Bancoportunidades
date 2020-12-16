@@ -10,17 +10,19 @@ import com.app.Banco.serviceinterfaces.IclienteService;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-@RequestMapping(value="Bank/cliente")
+@RequestMapping("/clientes")
 public class clienteControl {
     
     @Autowired
@@ -28,28 +30,38 @@ public class clienteControl {
     
     
     
-    @GetMapping(value="/lista") //produces = "application/json"
-    
+    @GetMapping("/listarCli") //produces = "application/json"
     public String listclient(Model model){
         
         List<Cliente>clientes=service.listar();
         
         model.addAttribute("clientes", clientes);
        
-     return "index";
+     return "opciones";
    }
     
+    @GetMapping("/newCli")
+    public String agregar(Model model){
+        model.addAttribute("clientes", new Cliente());
+        return "formCli";
+    }
     
-    @GetMapping(value="/{id}") //produces = "application/json"
-    
-    public String findbyid (Model model, @PathVariable (value="cedula")String id){
-        
-        Optional<Cliente>clientes=service.listId(id);
-        
+    @GetMapping("/editCli/{cedula}")
+    public String editar(@PathVariable String cedula, Model model){
+        Optional<Cliente>clientes=service.listId(cedula);
         model.addAttribute("clientes", clientes);
-       
-     return "opciones";
+        return "formCli";
+    }
     
+    @PostMapping("/saveCli")
+    public String save(@Valid Cliente cli, Model model){
+        service.save(cli);
+        return "redirect:/clientes/listarCli";
+    }
     
+    @GetMapping("/deleteCli/{cedula}")
+    public String delete(Model model, @PathVariable String cedula){
+        service.delete(cedula);
+        return "redirect:/clientes/listarCli";
     }
 }

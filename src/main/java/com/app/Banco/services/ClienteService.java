@@ -26,27 +26,28 @@ public class ClienteService implements IclienteService {
     
     
     @Override
-    public List<Cliente>listar() {
-        
-      
-            
+    public List<Cliente>listar() {  
         return  (List<Cliente>)data.findAll();
-        
     }
 
     @Override
     public Optional<Cliente> listId(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return data.findById(id);
     }
 
     @Override
     public int save(Cliente cli) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int res=0;
+        Cliente cliente=data.save(cli);
+        if(!cliente.equals(null)){
+            res=1;
+        }
+        return res;
     }
 
     @Override
     public void delete(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        data.deleteById(id);
     }
     
 }

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.Banco.services;
+package com.app.Banco.services;
 
-import com.example.Banco.interfaces.Iciudad;
-import com.example.Banco.model.Ciudad;
-import com.example.Banco.serviceinterfaces.IciudadService;
+import com.app.Banco.interfaces.Iciudad;
+import com.app.Banco.model.Ciudad;
+import com.app.Banco.serviceinterfaces.IciudadService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

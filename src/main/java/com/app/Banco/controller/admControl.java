@@ -21,24 +21,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @Controller
-@RequestMapping
+@RequestMapping("/admcuenta")
 public class admControl {
     
-//    @Autowired(required = true)
-//    private IadmovService service;
-//    
-//    
-//    
-//    @GetMapping("/listar")
-//    
-//    public String listar( Model model){
-//        
-//        List<admCuenta>adm=service.listar();
-//        model.addAttribute("adm", adm);
-//        
-//        
-//        return "index";
     
-    //}
+    private IadmovService service;
+    
+    @GetMapping("/listarAdmCuenta")
+    public String listar(Model model){
+        List<admCuenta>admcuenta=service.listar();
+        model.addAttribute("admcuenta", admcuenta);
+        return "listarAdmCuenta";
+    }
     
 }

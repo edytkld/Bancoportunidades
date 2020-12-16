@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.Banco.controller;
+package com.app.Banco.controller;
 
-import com.example.Banco.model.Cuenta;
-import com.example.Banco.serviceinterfaces.IcuentaServices;
+import com.app.Banco.model.Cuenta;
+import com.app.Banco.serviceinterfaces.IcuentaServices;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;

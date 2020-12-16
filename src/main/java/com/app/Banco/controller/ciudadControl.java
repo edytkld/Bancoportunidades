@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.BankJPA.controller;
+package com.app.Banco.controller;
 
-import com.example.Banco.model.Ciudad;
-import com.example.Banco.serviceinterfaces.IciudadService;
+import com.app.Banco.model.Ciudad;
+import com.app.Banco.serviceinterfaces.IciudadService;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;

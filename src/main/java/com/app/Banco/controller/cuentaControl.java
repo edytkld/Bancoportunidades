@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author ASUS H110 plus
  */
 @Controller
-@RequestMapping("/cuenta")
+@RequestMapping("Bank/cuenta")
 public class cuentaControl {
     
     @Autowired
@@ -42,7 +42,7 @@ public class cuentaControl {
         return "form2";
     }
     
-    @GetMapping("/edit/{codigo_cta}")
+    @GetMapping("/{codigo_cta}")
     public String editar(@PathVariable int codigo_cta, Model model){
         Optional<Cuenta>cuenta=service.listId(codigo_cta);
         model.addAttribute("cuenta", cuenta);

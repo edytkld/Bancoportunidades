@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-@RequestMapping("/clientes")
+@RequestMapping("Bank/clientes")
 public class clienteControl {
     
     @Autowired

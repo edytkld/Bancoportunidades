@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns :th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta charset="utf-8">
+        <title>CLIENTES</title>
+        <link rel="shortcut icon" th:src="@{/images/icono.png}"/>
+        <link rel="stylesheet" type="text/css" media="all"  
+              href="../../css/estilos.css" th:href="@{/css/estilos.css}" />
+    </head>
+    <body>
+        <header class="cabeza">
+            <P class="banco">
+                BANCOPORTUNIDADES
+                <a th:href="@{/Bank/cuenta/list}" class="opregre" style="position: relative; left: 30%;">Cuentas</a>
+                <a th:href="@{/Bank/ciudad/list}" class="opregre" style="position: relative; left: 30%;">Ciudades</a>
+                <a th:href="@{/Bank/movimiento/list}" class="opregre" style="position: relative; left: 30%;">Movimientos</a>
+            </P>
+        </header>
+        <div class="centrar2">
+            <p><strong>LISTA DE CLIENTES</strong></p>
+        </div>
+        <a th:href="@{/Bank/clientes/new}" class="opregreC" style="position: relative; left: 44%; top: -15px;">AGREGAR</a>
+        <div class="container4">
+            <div class="modal-opciones4">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td><strong>CEDULA</strong></td> 
+                            <td><strong>NOMBRE</strong></td>
+                            <td><strong>APELLIDO</strong></td>
+                            <td><strong>TELÉFONO</strong></td>
+                            <td><strong>DIRECCIÓN</strong></td>
+                            <td><strong>CIUDAD</strong></td>
+                            <td><strong>ACCIONES</strong></td><br>
+                    </tr>
+                    </thead>    
+                    <tbody>
+                        <tr th:each="clientes:${clientes}">
+                            <td th:text="${clientes.cedula}"></td>
+                            <td th:text="${clientes.nombre}"></td>
+                            <td th:text="${clientes.apellido}"></td>
+                            <td th:text="${clientes.telefono}"></td>
+                            <td th:text="${clientes.direccion}"></td>
+                            <td th:text="${clientes.cod_ciudad.nombre}"></td>
+                            <td>
+                                <a th:href="@{/Bank/clientes/}+${clientes.cedula}" class="AccionE">EDITAR</a>
+                                <a th:href="@{/Bank/clientes/delete/}+${clientes.cedula}" class="Accion">ELIMINAR</a>
+                            </td>
+                        </tr>
+                    </tbody>     
+                </table>
+
+            </div>
+        </div>
+    </body>
+</html>

@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-@RequestMapping("Bank/clientes")
+@RequestMapping("/Bank/clientes")
 public class clienteControl {
     
     @Autowired
@@ -37,7 +37,7 @@ public class clienteControl {
         
         model.addAttribute("clientes", clientes);
        
-     return "opciones";
+     return "listarClientes";
    }
     
     @GetMapping("/new")
@@ -56,12 +56,12 @@ public class clienteControl {
     @PostMapping("/save")
     public String save(@Valid Cliente cli, Model model){
         service.save(cli);
-        return "redirect:/clientes/list";
+        return "redirect:/Bank/clientes/list";
     }
     
     @GetMapping("/delete/{cedula}")
     public String delete(Model model, @PathVariable String cedula){
         service.delete(cedula);
-        return "redirect:/clientes/list";
+        return "redirect:/Bank/clientes/list";
     }
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" media="all"  
+              href="../../css/estilos.css" th:href="@{/css/estilos.css}" />
+        <title>Retiro</title>
+        <link rel="shortcut icon" href="icono.png">
+    </head>
+    <body>
+        <header class="cabeza">
+            <P>BANCOPORTUNIDADES <a th:href="@{/Bank/Usuario}" class="opregre">Regresar</a></P>
+
+        </header>
+        <div class="centrar2">
+            <p><strong>RETIRO</strong></p>
+        </div>
+        <div class="container3">    
+            <div class= "modal-opciones3">
+
+                <form action="retiro" method="get">
+                    <p style="font-size: 33px;">
+                        ¡ingrese la cantidad de dinero a retirar!
+                    </p>
+                    <p style="text-align:center;">
+                        <input type="number" name="saldoretiro" size="90">
+                    </p>
+                    <p >
+                        <input type="submit" value="RETIRAR" class="enviar2">
+                    </p>
+                </form>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="barra-footer">
+            &copy; Derechos reservados
+        </div>
+    </footer>
+</html>

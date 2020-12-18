@@ -1,49 +1,54 @@
 <!DOCTYPE html>
-<html xmlns :th="http://www.thymeleaf.org">
+<html>
     <head>
-        <title>CUENTAS</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <meta charset="utf-8">
+        <title>Crear cliente</title>
+        <link rel="shortcut icon" href="icono.png">
+        <link rel="shortcut icon" href="icono.png">
+        <link rel="stylesheet" type="text/css" media="all"  
+         href="../../css/estilos.css" th:href="@{/css/estilos.css}" />
     </head>
     <body>
-        <div class="container mt-4">
-            <div class="col-sm-6">
-                <form th:action="@{/clientes/save}" th:each=clientes:${clientes} method="post">
-                    <div class="card">
-                    <div class="card-header">MODULO CLIENTES</div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>CEDULA</label>
-                            <input th:field="${clientes.cedula}" type="text" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label>NOMBRE</label>
-                            <input th:field="${clientes.nombre}" type="text" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label>APELLIDO</label>
-                            <input th:field="${clientes.apellido}" type="text" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label>TELÉFONO</label>
-                            <input th:field="${clientes.telefono}" type="text" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label>DIRECCIÓN</label>
-                            <input th:field="${clientes.direccion}" type="text" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label>CIUDAD</label>
-                            <input th:field="${clientes.cod_ciudad}" type="text" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <input type="submit" value="GUARDAR" class="btn btn-success" />
-                    </div>
-                </div>
+        <header class="cabeza">
+            <P>BANCOPORTUNIDADES <a th:href="@{/Bank/clientes/list}" class="opregre">Regresar</a></P>
+        </header>
+        <div>
+            <p class="centrar2">
+                <strong>MODULO CLIENTES</strong>
+            </p>
+        </div>
+        <div class="container3">    
+            <div class= "modal-opciones3" style="height: 110%;">
+                <form th:action="@{/Bank/clientes/save}" th:each=clientes:${clientes} method="post">
+                    <p class="separar1">
+                        CEUDLA: <br><input th:field="${clientes.cedula}" type="number" name="cedula" size="40">
+                    </p>
+                    <p class="separar2">
+                        NOMBRES: <br><input th:field="${clientes.nombre}" type="text" name="nombres" size="40">
+                    </p>
+                    <p>
+                        APELLIDOS: <br><input th:field="${clientes.apellido}" type="text" name="apellidos" size="40">
+                    </p>
+                    <p class="separar3">
+                        TELÉFONO: <br><input th:field="${clientes.telefono}" type="number" name="telefono" size="40" >
+                    </p>
+                    <p>
+                        DIRECCIÓN: <br><input th:field="${clientes.direccion}" type="text" name="direccion" size="40">
+                    </p>
+                    <p>
+                        CIUDAD: <br><input th:field="${clientes.cod_ciudad}" type="text" name="direccion" size="40">
+                    </p>
+                    <p >
+                        <input type="submit" value="GUARDAR" class="enviar2">
+                    </p>    
                 </form>
             </div>
         </div>
     </body>
+    <footer>
+        <div class="barra-footer">
+            &copy; Derechos reservados
+        </div>
+    </footer>
 </html>

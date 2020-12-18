@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html xmlns :th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta charset="utf-8">
+        <title>CIUDADES</title>
+        <link rel="shortcut icon" href="icono.png">
+        <link rel="shortcut icon" href="icono.png">
+        <link rel="stylesheet" type="text/css" media="all"  
+              href="../../css/estilos.css" th:href="@{/css/estilos.css}" />
+    </head>
+    <body>
+        <header class="cabeza">
+            <P class="banco">
+                BANCOPORTUNIDADES
+                <a th:href="@{/Bank/clientes/list}" class="opregre" style="position: relative; left: 30%;">Clientes</a>
+                <a th:href="@{/Bank/cuenta/list}" class="opregre" style="position: relative; left: 30%;">Cuentas</a>
+                <a th:href="@{/Bank/movimiento/list}" class="opregre" style="position: relative; left: 30%;">Movimientos</a>
+            </P>
+
+        </header>
+    <body>
+        <div class="centrar2">
+            <p><strong>LISTA DE CIUDADES</strong></p>
+        </div>
+        <a th:href="@{/Bank/ciudad/new}" class="opregreC" style="position: relative; left: 45%; top: -15px;">AGREGAR</a>
+        <div class="container5">
+            <div class="modal-opciones6">
+                <table class="table0">
+                    <td><strong>CODIGO </strong></td> 
+                    <td><strong>CIUDAD</strong></td>
+                    <td><strong>ACCIONES</strong></td><br>
+                    <tr th:each="ciudad:${ciudad}">
+                        <td th:text="${ciudad.codigo}"></td>
+                        <td th:text="${ciudad.nombre}"></td>
+                        <td>
+                            <a th:href="@{/Bank/ciudad/}+${ciudad.codigo}" class="AccionE">EDITAR</a>
+                            <a th:href="@{/Bank/ciudad/delete/}+${ciudad.codigo}" class="Accion">ELIMINAR</a>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
+    </body>
+</body>
+</html>
+

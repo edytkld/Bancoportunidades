@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            OPERACIONES
+        </title>
+        <link rel="shortcut icon" href="icono.png">
+        <link rel="stylesheet" type="text/css" media="all"  
+              href="../../css/estilos.css" th:href="@{/css/estilos.css}" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nerko+One&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="cabeza">
+            <P>BANCOPORTUNIDADES <a th:href="@{/Bank/}" class="opregre">Cerrar sesión</a></P>
+        </header>
+        <div class="centrar2">
+            <p><strong>OPCIONES DE USUARIO</strong></p>
+        </div>
+        <div class="container">    
+            <div class= "modal-opciones">
+                <ul class="lista">
+                    <li><a th:href="@{/Bank/Consultar/}">Consultar</a></li>
+                    <li class="centrar"><a th:href="@{/Bank/Retiro/}">Retirar</a></li>
+                    <li><a th:href="@{/Bank/Depositar/}">Depositar</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="barra-footer">
+            &copy; Derechos reservados
+        </div>
+    </footer>
+</html>

@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @Controller
-@RequestMapping("/ciudad")
+@RequestMapping("/Bank/ciudad")
 public class ciudadControl {
     
     @Autowired
@@ -33,32 +33,32 @@ public class ciudadControl {
     public String listar(Model model){
         List<Ciudad>ciudad=service.listar();
         model.addAttribute("ciudad", ciudad);
-        return "index";
+        return "listarCiudad";
     }
     
     @GetMapping("/new")
     public String agregar(Model model){
         model.addAttribute("ciudad", new Ciudad());
-        return "form1";
+        return "formCiu";
     }
     
     @GetMapping("/{codigo}")
     public String editar(@PathVariable int codigo, Model model){
         Optional<Ciudad>ciudad=service.listId(codigo);
         model.addAttribute("ciudad", ciudad);
-        return "form1";
+        return "formCiu";
     }
     
     @PostMapping("/save")
     public String save(@Valid Ciudad ciu, Model model){
         service.save(ciu);
-        return "redirect:/ciudad/list";
+        return "redirect:/Bank/ciudad/list";
     }
     
     @GetMapping("/delete/{codigo}")
     public String delete(Model model, @PathVariable int codigo){
         service.delete(codigo);
-        return "redirect:/ciudad/list";
+        return "redirect:/Bank/ciudad/list";
     }
     
 }

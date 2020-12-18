@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns :th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta charset="utf-8">
+        <title>CIUDADES</title>
+        <link rel="shortcut icon" href="icono.png">
+        <link href="estilos.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="icono.png">
+        <link rel="stylesheet" type="text/css" media="all"  
+              href="../../css/estilos.css" th:href="@{/css/estilos.css}" />
+    </head>
+    <body>
+        <header class="cabeza">
+            <P>BANCOPORTUNIDADES <a th:href="@{/Bank/ciudad/list}" class="opregre">Regresar</a></P>
+        </header>
+        <div>
+            <p class="centrar2">
+                <strong>MODULO CIUDAD</strong>
+            </p>
+        </div>
+        <div class="container3">    
+            <div class= "modal-opciones3" style="height: 110%;">
+                <form th:action="@{/Bank/ciudad/save}" th:each=ciudad:${ciudad} method="post">
+                    <p class="separar1">
+                        CODIGO: <br><input readonly="" type="number" name="cedula" size="40">
+                    </p>
+                    <p class="separar2">
+                        CIUDAD: <br><input th:field="${ciudad.nombre}" type="text" name="nombres" size="40">
+                    </p>
+                    <p >
+                        <input type="submit" value="GUARDAR" class="enviar2">
+                    </p>    
+                </form>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <div class="barra-footer">
+            &copy; Derechos reservados
+        </div>
+    </footer>
+</html>

@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author ASUS H110 plus
  */
 @Controller
-@RequestMapping("Bank/cuenta")
+@RequestMapping("/Bank/cuenta")
 public class cuentaControl {
     
     @Autowired
@@ -39,26 +39,26 @@ public class cuentaControl {
     @GetMapping("/new")
     public String agregar(Model model){
         model.addAttribute("cuenta", new Cuenta());
-        return "form2";
+        return "formCuentas";
     }
     
     @GetMapping("/{codigo_cta}")
     public String editar(@PathVariable int codigo_cta, Model model){
         Optional<Cuenta>cuenta=service.listId(codigo_cta);
         model.addAttribute("cuenta", cuenta);
-        return "form2";
+        return "formCuentas";
     }
     
     @PostMapping("/save")
     public String save(@Valid Cuenta cuen, Model model){
         service.save(cuen);
-        return "redirect:/cuenta/list";
+        return "redirect:/Bank/cuenta/list";
     }
     
     @GetMapping("/delete/{codigo_cta}")
     public String delete(Model model, @PathVariable int codigo_cta){
         service.delete(codigo_cta);
-        return "redirect:/cuenta/list";
+        return "redirect:/Bank/cuenta/list";
     }
     
 }

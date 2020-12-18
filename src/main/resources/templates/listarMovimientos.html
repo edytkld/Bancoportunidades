@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns :th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta charset="utf-8">
+        <title>MOVIMIENTOS</title>
+        <link rel="shortcut icon" th:src="@{/images/icono.png}"/>
+        <link rel="stylesheet" type="text/css" media="all"  
+              href="../../css/estilos.css" th:href="@{/css/estilos.css}" />
+    </head>
+    <body>
+        <header class="cabeza">
+            <P class="banco">
+                BANCOPORTUNIDADES
+                <a th:href="@{/Bank/cuenta/list}" class="opregre" style="position: relative; left: 30%;">Cuentas</a>
+                <a th:href="@{/Bank/ciudad/list}" class="opregre" style="position: relative; left: 30%;">Ciudades</a>
+                <a th:href="@{/Bank/clientes/list}" class="opregre" style="position: relative; left: 30%;">Clientes</a>
+            </P>
+        </header>
+        <div class="centrar2">
+            <p><strong>MOVIMENTOS</strong></p>
+        </div>
+        <a th:href="@{/Bank/movimiento/new}" class="opregreC" style="position: relative; left: 44%; top: -15px;">AGREGAR</a>
+        <div class="container4">
+            <div class="modal-opcionesMov">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td><strong>ID</strong></td> 
+                            <td><strong>CEDULA CLIENTE</strong></td>
+                            <td><strong>CODIGO CUENTA</strong></td>
+                            <td><strong>FECHA</strong></td>
+                            <td><strong>TIPO</strong></td>
+                            <td><strong>SALDO</strong></td>
+                    </tr>
+                    </thead>    
+                    <tbody>
+                        <tr th:each="movimientos:${movimientos}">
+                            <td th:text="${movimientos.id}"></td>
+                            <td th:text="${movimientos.cedula.cedula}"></td>
+                            <td th:text="${movimientos.cod_cuenta.codigo_cta}"></td>
+                            <td th:text="${movimientos.fecha_m}"></td>
+                            <td th:text="${movimientos.tipo_mov}"></td>
+                            <td th:text="${movimientos.saldo}"></td>
+                        </tr>
+                    </tbody>     
+                </table>
+
+            </div>
+        </div>
+    </body>
+</html>

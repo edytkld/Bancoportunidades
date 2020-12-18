@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author ASUS H110 plus
  */
 @Controller
-@RequestMapping("Bank/movimiento")
+@RequestMapping("/Bank/movimiento")
 public class moviControl {
     
     
@@ -37,27 +37,27 @@ public class moviControl {
        List<Movimiento>movimientos=service.listar();
        model.addAttribute("movimientos",movimientos);
         
-        return "";
+        return "listarMovimientos";
        
 }
     
     @GetMapping("/{id}")
     public String findbyid (@PathVariable int id, Model model){
       
-        Optional<Movimiento>movimiento=service.listId(id);
+        Optional<Movimiento>movimientos=service.listId(id);
         
-        model.addAttribute("movimiento",movimiento);
+        model.addAttribute("movimientos",movimientos);
        
         
-        return "";
+        return "formMovi";
     
     }
     
     
       @GetMapping("/new")
     public String agregar(Model model){
-        model.addAttribute("clientes", new Movimiento());
-        return "";
+        model.addAttribute("movimientos", new Movimiento());
+        return "formMovi";
     }
     
   
@@ -65,12 +65,12 @@ public class moviControl {
     @PostMapping("/save")
     public String save(@Valid Movimiento mov, Model model){
         service.save(mov);
-        return "";
+        return "redirect:/Bank/movimiento/list";
     }
     
     @GetMapping("/delete/{id}")
     public String delete(Model model, @PathVariable int id){
         service.delete(id);
-        return "";
+        return "redirect:/Bank/movimiento/list";
     }
 }

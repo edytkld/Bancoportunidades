@@ -14,23 +14,35 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author ASUS H110 plus
  */
-
 @Controller
-@RequestMapping(value="/Bank")
+@RequestMapping("/Bank")
 public class indexController {
-    
-    
-    @GetMapping(value="/")
-    public String index(){
-        
+
+    @GetMapping("/")
+    public String index() {
+
         return "index";
-         
-}
-//     @GetMapping(value="/vista1" )
-//     public String vista1(){
-//return "vista1";
-//}
+
+    }
+
+    @GetMapping("/Usuario")
+    public String vista1() {
+        return "OperacionesCliente";
+    }
     
+    @GetMapping("/Retiro")
+    public String retiro() {
+        return "Retiro";
+    }
     
+    @GetMapping("/Depositar")
+    public String deposito() {
+        return "Depositar";
+    }
     
+    @GetMapping("/Consultar")
+    public String saldo() {
+        return "Consultar";
+    }
+
 }
